@@ -87,7 +87,7 @@ The `socket-connection` provides the abiliity to connect to a `socket.io` server
         if ( ! this.isConnected ) {
           this._connect = new Promise(function(resolve, reject){
 
-            this.socket = io.connect(this.url);
+            this.socket = io.connect(location.origin + this.url);
 
             this.socket.on('connect', this.fireEvent('socket-connect'));
             this.socket.on('connect_error', this.fireEvent('socket-error'));
